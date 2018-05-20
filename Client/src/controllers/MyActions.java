@@ -1,6 +1,6 @@
 package controllers;
 
 public enum MyActions {
-	ADD
+	ADD, ACCEPT
 
 }

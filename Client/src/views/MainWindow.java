@@ -20,6 +20,7 @@ public class MainWindow extends JFrame{
 	private JButton btnAdd;
 	
 	public MainWindow(Controller controller) {
+		setLocationRelativeTo(null);
 		setSize(400, 200);
 		SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 15, 1);
 		sp = new JSpinner(model);
@@ -33,8 +34,6 @@ public class MainWindow extends JFrame{
 		btnAdd.setActionCommand(MyActions.ADD.toString());
 		btnAdd.addActionListener(controller);
 		add(btnAdd, BorderLayout.SOUTH);
-		
-		setVisible(true);
 	}
 
 	public void setText(String text) {
@@ -42,7 +41,19 @@ public class MainWindow extends JFrame{
 		repaint();
 	}
 	
-	public int getNumber() {
-		return Integer.parseInt(sp.getValue().toString());
+	public String getNumber() {
+		return sp.getValue().toString();
+	}
+
+	public void hour(String read) {
+		lbText.setBorder(new TitledBorder("The Hour is:"));
+		lbText.setText(read);
+		remove(sp);
+	}
+
+	public void file(String read) {
+		lbText.setBorder(new TitledBorder("A new file has been created:"));
+		lbText.setText(read);
+		remove(sp);
 	}
 }
